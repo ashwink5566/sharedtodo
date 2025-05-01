@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import SharedList, Task
 from django.utils.dateparse import parse_date
+from django.http import HttpResponse
+from django.contrib.admin.views.decorators import staff_member_required
+from django.core.management import call_command
 
 @login_required
 def task_list(request):
@@ -43,3 +46,11 @@ def delete_task(request, task_id):
     task = get_object_or_404(Task, id=task_id)
     task.delete()
     return redirect('task_list')
+
+
+@staff_member_required
+def setup_view(request):
+    call_command('migrate')
+    call_command('collectstatic', interactive=False)
+    return HttpResponse("Migration and collectstatic done.")
+
