@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Tasks</title>
+    <link rel="stylesheet" href="{% static 'todo/style.css' %}">
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <div class="navbar">
+            <div class="navbar-left">
+                <span class="user-info">{{ user.username }}</span>
+            </div>
+            <div class="navbar-right">
+                <a class="logout" href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

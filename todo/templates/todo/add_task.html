@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        min-height: 80vh;
+        background-color: #f4f7f6;
+    }
+
+    .task-form {
+        background-color: #ffffff;
+        padding: 1.5rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 400px;
+        position: relative;
+    }
+
+    .task-form h2 {
+        text-align: center;
+        margin-bottom: 1.2rem;
+        font-size: 22px;
+        color: #333;
+    }
+
+    .task-form p {
+        margin-bottom: 1rem;
+    }
+
+    .task-form label {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-weight: 500;
+        color: #444;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+    }
+
+    /* Override global button style for this form's button */
+    .task-form button[type="submit"] {
+        position: static !important;
+        transform: none !important;
+        background-color: #ff4d4d;
+        color: white;
+        padding: 10px 16px;
+        font-size: 15px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 1rem;
+        font-weight: 600;
+    }
+
+    .task-form button[type="submit"]:hover {
+        background-color: #e60000;
+    }
+</style>
+
+<div class="container">
+    <form method="post" class="task-form">
+        {% csrf_token %}
+        <h2>Add Task</h2>
+        <p>
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" required class="form-input">
+        </p>
+        <p>
+            <label for="priority">Priority:</label>
+            <select name="priority" id="priority" class="form-input">
+                <option value="L">Low</option>
+                <option value="M" selected>Medium</option>
+                <option value="H">High</option>
+            </select>
+        </p>
+        <p>
+            <label for="finish_by">Finish By:</label>
+            <input type="date" name="finish_by" id="finish_by" class="form-input">
+        </p>
+        <button type="submit">Add Task</button>
+    </form>
+</div>
+{% endblock %}

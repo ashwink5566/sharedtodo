@@ -1,0 +1,164 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #ffffff;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .user-info {
+    font-weight: bold;
+}
+
+.navbar .logout {
+    color: #e74c3c;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 2px solid #e74c3c;
+    border-radius: 5px;
+}
+
+.navbar .logout:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.container {
+    margin-top: 80px; /* To ensure content is below the navbar */
+    padding: 2rem;
+    text-align: center;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.add-task-btn {
+    color: #ff4d4d;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+/* Task list styles */
+.task-list {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task-item {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    text-align: left;
+    position: relative;
+    background-color: #f9f9f9; /* Light gray background */
+}
+
+.task-item:nth-child(odd) {
+    background-color: #ffffff; /* White background for odd tasks */
+}
+
+.task-item:nth-child(even) {
+    background-color: #f1f1f1; /* Slightly darker background for even tasks */
+}
+
+li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+form button {
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+a {
+    text-decoration: none;
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #e60000;
+}
+
+/* Table Layout (optional for tasks view) */
+.task-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.task-table th, .task-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.task-table th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    color: #333;
+}
+
+.task-table td {
+    background-color: #fff;
+}
+
+.task-table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+.task-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.status-btn {
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.delete-task {
+    color: #e74c3c;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.delete-task:hover {
+    color: #c0392b;
+}
+
+.task-row td {
+    vertical-align: middle;
+}
